@@ -4,55 +4,49 @@
 }
 
 body {
-  margin: 0;
-  min-height: 100vh;
-  background: linear-gradient(135deg, #1f1c2c, #928dab);
+  padding: 30px;   /* 👈 ต้องมี */
   display: flex;
-  align-items: center;
   justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  box-sizing: border-box;
+  background: linear-gradient(135deg, #1f1c2c, #928dab);
   color: #fff;
-  padding: 15px; /* กันจอเล็กชนขอบ */
 }
-
-/* ========================
-   CONTAINER
-======================== */
 
 .container {
   background: rgba(0, 0, 0, 0.35);
-  padding: 25px;
+  padding: 40px 60px;
   border-radius: 16px;
   text-align: center;
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
-  width: 100%;
-  max-width: 600px;
 }
 
 h1 {
   margin-bottom: 10px;
-  font-size: 1.6rem;
 }
 
 p {
   margin-bottom: 25px;
   opacity: 0.9;
-  font-size: 0.95rem;
 }
-
-/* ========================
-   LEVEL BUTTONS
-======================== */
 
 .level-buttons {
   display: flex;
   flex-wrap: wrap;
-  gap: 12px;
+  gap: 15px;
   justify-content: center;
 }
+@media (min-width: 1080px) {
+    .level-buttons {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
 
 button {
-  padding: 12px 20px;
-  font-size: 15px;
+  padding: 14px 28px;
+  font-size: 16px;
   border: none;
   border-radius: 10px;
   cursor: pointer;
@@ -70,54 +64,46 @@ button:active {
   transform: translateY(0);
 }
 
-/* ========================
-   MEMORY GAME
-======================== */
+/* ----- Memory Game Styles ----- */
 
+.menu-container,
 .game-container {
-  text-align: center;
-  width: 100%;
+  width: min(900px, 92%);
+  margin: 40px auto;
+  padding: 30px;
+  box-sizing: border-box;
 }
 
-/* TOP BAR RESPONSIVE */
 
 .top-bar {
   display: flex;
   justify-content: space-between;
-  flex-wrap: wrap;
-  gap: 10px;
   margin-bottom: 10px;
 }
 
 .status,
 .timer {
-  font-size: 16px;
+  font-size: 18px;
 }
-
-/* ========================
-   GRID RESPONSIVE
-======================== */
 
 .grid {
   display: grid;
-  gap: 10px;
+  gap: 12px;
+  justify-content: center;
   margin: 20px auto;
-  width: 100%;
 }
 
-/* การ์ด responsive */
 .card {
-  width: 100%;
-  aspect-ratio: 1 / 1;   /* ทำให้เป็นสี่เหลี่ยมจัตุรัสเสมอ */
+  width: 80px;
+  height: 80px;
   background: rgba(255, 255, 255, 0.15);
   border-radius: 12px;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: clamp(20px, 5vw, 36px);
+  font-size: 36px;
   cursor: pointer;
   user-select: none;
-  transition: 0.2s;
 }
 
 .card.flipped,
@@ -125,54 +111,15 @@ button:active {
   background: rgba(255, 255, 255, 0.35);
 }
 
-/* ========================
-   CONTROLS
-======================== */
-
 .controls {
   margin-top: 15px;
   display: flex;
   gap: 10px;
   justify-content: center;
-  flex-wrap: wrap;
 }
 
 .back-btn,
 .retry-btn {
   padding: 10px 20px;
   font-size: 14px;
-}
-
-/* ========================
-   BREAKPOINTS
-======================== */
-
-/* Tablet */
-@media (min-width: 600px) {
-  .container {
-    padding: 35px;
-  }
-
-  h1 {
-    font-size: 1.8rem;
-  }
-
-  .status,
-  .timer {
-    font-size: 18px;
-  }
-}
-
-/* Laptop */
-@media (min-width: 900px) {
-  .container {
-    max-width: 800px;
-  }
-}
-
-/* Desktop ใหญ่ */
-@media (min-width: 1200px) {
-  .container {
-    max-width: 1000px;
-  }
 }
